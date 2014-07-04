@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Elxis/ADOdb Supported Databases</title>
+<style type="text/css">
+body {
+  font-family: Tahoma, Verdana, arial;
+  font-size: 85%;
+  color: #000000;
+  background: #FFFFFF;
+}
+
+p {
+  text-align: justify;
+}
+
+h2 {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #B50016;
+}
+
+table {
+  width: 100%;
+  color: #000000;
+	font-size: 0.85em;
+  font-family: Tahoma, Verdana, arial;
+	border: 1px solid #666666;
+}
+
+td {
+	border: 1px solid #666666;
+}
+
+.tda {
+	background: #009900;
+	text-align:center;
+}
+
+.tdb {
+	background: #66cc99;
+	text-align:center;
+}
+
+.tdc {
+	background: #ff6633;
+	text-align:center;
+}
+
+.tdan {
+	background: #33cc66;
+	text-align:center;
+}
+
+.tdn {
+	background: #cecece;
+	text-align:center;
+}
+
+.ker {
+  font-weight: bold;
+  color: #B50016;
+}
+</style>
+</head>
+<body>
+<h2>Elxis / ADOdb Supported Databases</h2>
+<strong>Elxis Version: 2009.0</strong><br />
+<strong>ADOdb Version: 5.0.4</strong><br />
+<p>The <em>name</em> below is the value you pass to NewADOConnection($name) to create a connection object for that database.<br /><br />
+<em>Last Update: Saturday, March 7, 2009</em></p>
+
+<table cellspacing="0" cellpadding="2" width="100%">
+<tr> 
+    <td><b>Name</b></td>
+    <td><b>Tested</b></td>
+    <td><b>Elxis Tested</b></td>
+    <td><b>Database</b></td>
+    <td><b>RecordCount() usable</b></td>
+    <td><b>Prerequisites</b></td>
+    <td><b>Operating Systems</b></td>
+</tr>
+<tr> 
+    <td class="ker">access</td>
+    <td>B</td>
+    <td class="tdc">C</td>
+    <td>Microsoft Access/Jet. You need to create an ODBC DSN.</td>
+    <td>Y/N</td>
+    <td>ODBC </td>
+    <td>Windows</td>
+</tr>
+<tr> 
+    <td class="ker">ado</td>
+    <td>B</td>
+    <td class="tdn">N</td>
+    <td>Generic ADO, not tuned for specific databases. Allows DSN-less connections. 
+		For best performance, use an OLEDB provider. This is the base class for all ado drivers.<br />
+		You can set $db-&gt;codePage before connecting.</td>
+    <td>? depends on database</td>
+    <td>ADO or OLEDB provider</td>
+    <td>Windows</td>
+</tr>
+<tr> 
+    <td class="ker">ado_access</td>
+    <td>B</td>
+    <td class="tdn">N</td>
+    <td>Microsoft Access/Jet using ADO. Allows DSN-less connections. For best performance, use an OLEDB provider.</td>
+    <td>Y/N</td>
+    <td>ADO or OLEDB provider</td>
+    <td>Windows</td>
+</tr>
+<tr> 
+    <td class="ker">ado_mssql</td>
+    <td>B</td>
+    <td class="tdn">N</td>
+    <td>Microsoft SQL Server using ADO. Allows DSN-less connections. For best performance, use an OLEDB provider.</td>
+    <td>Y/N</td>
+    <td>ADO or OLEDB provider</td>
+    <td>Windows</td>
+</tr>
+<tr> 
+    <td class="ker">db2</td>
+    <td>C</td>
+    <td class="tdn">N</td>
+    <td>Uses PHP's db2-specific extension for better performance.</td>
+    <td>Y/N</td>
+    <td>DB2 CLI/ODBC interface</td>
+    <td>Unix and Windows. Requires IBM DB2 Universal Database client.</td>
+</tr>
+<tr> 
+    <td class="ker">odbc_db2</td>
+    <td>C</td>
+    <td class="tdn">N</td>
+    <td>Connects to DB2 using generic ODBC extension.</td>
+    <td>Y/N</td>
+    <td>DB2 CLI/ODBC interface</td>
+    <td>Unix and Windows. <a href="http://www.faqts.com/knowledge_base/view.phtml/aid/6283/fid/14" target="_blank">
+		Unix install hints</a>. Some reports say that the $host and $database params have to be reversed in Connect() 
+		when using the CLI interface.
+	</td>
+</tr>
+<tr> 
+    <td class="ker">vfp</td>
+    <td>A</td>
+    <td class="tdn">N</td>
+    <td>Microsoft Visual FoxPro. You need to create an ODBC DSN.</td>
+    <td>Y/N</td>
+    <td>ODBC</td>
+    <td>Windows</td>
+</tr>
+<tr> 
+    <td class="ker">fbsql</td>
+    <td>C</td>
+    <td class="tdn">N</td>
+    <td>FrontBase</td>
+    <td>Y</td>
+    <td>?</td>
+    <td>Unix and Windows</td>
+</tr>
+<tr> 
+    <td class="ker">ibase</td>
+    <td>B</td>
+    <td class="tdn">N</td>
+    <td>Interbase 6 or earlier. Some users report you might need to use this<br />
+      $db-&gt;PConnect('localhost:c:/ibase/employee.gdb', "sysdba", "masterkey") to connect. Lacks Affected_Rows currently.<br />
+      You can set $db-&gt;role, $db-&gt;dialect, $db-&gt;buffers and $db-&gt;charSet before connecting.</td>
+    <td>Y/N</td>
+    <td>Interbase client</td>
+    <td>Unix and Windows</td>
+  </tr>
+<tr> 
+    <td class="ker"><em>firebird</em></td>
+    <td>B</td>
+    <td class="tdc">C</td>
+    <td>Firebird version of interbase.</td>
+    <td>Y/N</td>
+    <td>Interbase client</td>
+    <td>Unix and Windows</td>
+</tr>
+<tr> 
+    <td class="ker"><em>borland_ibase</em></td>
+    <td>C</td>
+    <td class="tdn">N</td>
+    <td>Borland version of Interbase 6.5 or later. Very sad that the forks differ.</td>
+    <td>Y/N</td>
+    <td>Interbase client</td>
+    <td>Unix and Windows</td>
+</tr>
+<tr> 
+    <td class="ker">informix</td>
+    <td>C</td>
+    <td class="tdn">N</td>
+    <td>Generic informix driver. Use this if you are using Informix 7.3 or later.</td>
+    <td>Y/N</td>
+    <td>Informix client</td>
+    <td>Unix and Windows</td>
+</tr>
+<tr> 
+    <td class="ker">informix72</td>
+    <td>C</td>
+    <td class="tdn">N</td>
+    <td> Informix databases before Informix 7.3 that do no support SELECT FIRST.</td>
+    <td>Y/N</td>
+    <td>Informix client</td>
+    <td>Unix and Windows</td>
+</tr>
+<tr> 
+    <td class="ker">ldap</td>
+    <td>C</td>
+    <td class="tdn">N</td>
+    <td>LDAP driver. See this example for usage information.</td>
+    <td>&nbsp;</td>
+    <td>LDAP extension</td>
+    <td>?</td>
+</tr>
+<tr> 
+    <td class="ker">mssql</td>
+    <td>A</td>
+    <td class="tdn">N</td>
+    <td>Microsoft SQL Server 7 and later. Works with Microsoft SQL Server 2000 also. Note that 
+		date formating is problematic with this driver. For example, the PHP mssql extension does 
+		not return the seconds for datetime!</p></td>
+    <td>Y/N</td>
+    <td>Mssql client</td>
+    <td>Unix and Windows. 
+		<a href="http://phpbuilder.com/columns/alberto20000919.php3" target="_blank">Unix install howto</a> 
+		and <a href="http://linuxjournal.com/article.php?sid=6636&mode=thread&order=0" target="_blank">another one</a>.
+	</td>
+</tr>
+<tr> 
+    <td class="ker">mssqlpo</td>
+    <td>A</td>
+    <td class="tdn">N</td>
+    <td>Portable mssql driver. Identical to above mssql driver, except that '||', the concatenation 
+		operator, is converted to '+'. Useful for porting scripts from most other sql variants that use ||.</td>
+    <td>Y/N</td>
+    <td>Mssql client</td>
+    <td>Unix and Windows. <a href="http://phpbuilder.com/columns/alberto20000919.php3" target="_blank">Unix install howto</a></td>
+</tr>
+<tr> 
+    <td class="ker">mysql</td>
+    <td>A</td>
+    <td class="tda">A</td>
+    <td>MySQL without transaction support. You can also set $db-&gt;clientFlags before connecting.</td>
+    <td>Y</td>
+    <td>MySQL client</td>
+    <td>Unix and Windows</td>
+</tr>
+<tr> 
+    <td class="ker">mysqli</td>
+    <td>B</td>
+    <td class="tdan">AN</td>
+    <td>Supports the newer PHP5 mysql api.</td>
+    <td>Y</td>
+    <td>MySQL 4.1+ client</td>
+    <td>Unix and Windows</td>
+</tr>
+<tr> 
+    <td class="ker">mysqlt</b> or <b>maxsql</td>
+    <td>A</td>
+    <td class="tdan">AN</td>
+    <td>MySQL with transaction support. We recommend using || as the concat operator 
+		for best portability. This can be done by running MySQL using: 
+		<em>mysqld --ansi</em> or <em>mysqld --sql-mode=PIPES_AS_CONCAT</em></td>
+    <td>Y/N</td>
+    <td>MySQL client</td>
+    <td>Unix and Windows</td>
+</tr>
+<tr> 
+    <td class="ker">oci8</td>
+    <td>A</td>
+    <td class="tda">A</td>
+    <td>Oracle 8/9. Has more functionality than <em>oracle</em> driver (eg. Affected_Rows). 
+		You might have to putenv('ORACLE_HOME=...') before Connect/PConnect.  There are 2 ways 
+		of connecting - with server IP and service name:<br />
+		<em>PConnect('serverip:1521','scott','tiger','service'</em>)<br />
+		or using an entry in TNSNAMES.ORA or ONAMES or HOSTNAMES:<br />
+		<em>PConnect(false, 'scott', 'tiger', $oraname)</em>.<br /> 
+    Since 2.31, ADODB supports Oracle REF cursor variables directly (see <a href="#executecursor">ExecuteCursor</a>).<br />
+	Oracle version tested with Elxis: Oracle 10g XE</td>
+    <td>Y/N</td>
+    <td>Oracle client</td>
+    <td>Unix and Windows</td>
+</tr>
+<tr> 
+    <td class="ker">oci805</td>
+    <td>C</td>
+    <td class="tdn">N</td>
+    <td>Supports reduced Oracle functionality for Oracle 8.0.5. SelectLimit is not as 
+		efficient as in the oci8 or oci8po drivers.</td>
+    <td>Y/N</td>
+    <td>Oracle client</td>
+    <td>Unix and Windows</td>
+</tr>
+<tr> 
+    <td class="ker">oci8po</td>
+    <td>A</td>
+    <td class="tdan">AN</td>
+    <td>Oracle 8/9 portable driver. This is nearly identical with the oci8 driver except 
+		(a) bind variables in Prepare() use the ? convention, instead of :bindvar, (b) field 
+		names use the more common PHP convention of lowercase names. Use this driver if porting 
+		from other databases is important. Otherwise the oci8 driver offers better performance.</td>
+    <td>Y/N</td>
+    <td>Oracle client</td>
+    <td>Unix and Windows</td>
+</tr>
+<tr> 
+    <td class="ker">odbc</td>
+    <td>A</td>
+    <td class="tdn">N</td>
+    <td>Generic ODBC, not tuned for specific databases. To connect, use PConnect('DSN','user','pwd'). 
+		This is the base class for all odbc derived drivers.
+	</td>
+    <td>? depends on database</td>
+    <td>ODBC</td>
+    <td>Unix and Windows. <a href="http://phpbuilder.com/columns/alberto20000919.php3?page=4" target="_blank">Unix hints</a></td>
+</tr>
+<tr> 
+    <td class="ker">odbc_mssql</td>
+    <td>A</td>
+    <td class="tdn">N</td>
+    <td>Uses ODBC to connect to MSSQL</td>
+    <td>Y/N</td>
+    <td>ODBC</td>
+    <td>Unix and Windows</td>
+</tr>
+<tr> 
+    <td class="ker">odbc_oracle</td>
+    <td>C</td>
+    <td class="tdn">N</td>
+    <td>Uses ODBC to connect to Oracle</td>
+    <td>Y/N</td>
+    <td>ODBC</td>
+    <td>Unix and Windows</td>
+</tr>
+<tr> 
+    <td class="ker">odbtp</td>
+    <td>B</td>
+    <td class="tdn">N</td>
+    <td>Generic odbtp driver. <a href="http://odbtp.sourceforge.net" target="_blank">Odbtp</a> is a software for 
+		accessing Windows ODBC data sources from other operating systems.
+	</td>
+    <td>Y/N</td>
+    <td>odbtp</td>
+    <td>Unix and Windows</td>
+</tr>
+<tr> 
+    <td class="ker">odbtp_unicode</td>
+    <td>C</td>
+    <td class="tdn">N</td>
+    <td>Odtbp with unicode support</td>
+    <td>Y/N</td>
+    <td>odbtp</td>
+    <td>Unix and Windows</td>
+</tr>
+<tr> 
+    <td class="ker">oracle</td>
+    <td>C</td>
+    <td class="tdn">N</td>
+    <td>Implements old Oracle 7 client API. Use oci8 driver if possible for better performance.</td>
+    <td>Y/N</td>
+    <td>Oracle client</td>
+    <td>Unix and Windows</td>
+</tr>
+<tr> 
+    <td class="ker">netezza</td>
+    <td>C</td>
+    <td class="tdn">N</td>
+    <td>Netezza driver. Netezza is based on postgres code-base.</td>
+    <td>Y</td>
+    <td>?</td>
+    <td>?</td>
+</tr>
+<tr> 
+    <td class="ker">pdo</td>
+    <td>C</td>
+    <td class="tdn">N</td>
+    <td>Generic PDO driver for PHP5. </td>
+    <td>Y</td>
+    <td>PDO extension and database specific drivers</td>
+    <td>Unix and Windows</td>
+</tr>
+
+<tr> 
+    <td class="ker">postgres</td>
+    <td>A</td>
+    <td class="tda">A</td>
+    <td>Generic PostgreSQL driver. Currently identical to postgres7 driver. </td>
+    <td>Y</td>
+    <td>PostgreSQL client</td>
+    <td>Unix and Windows</td>
+</tr>
+<tr> 
+    <td class="ker">postgres64</td>
+    <td>A</td>
+    <td class="tdan">AN</td>
+    <td>For PostgreSQL 6.4 and earlier which does not support LIMIT internally.</td>
+    <td>Y</td>
+    <td>PostgreSQL client</td>
+    <td>Unix and Windows</td>
+</tr>
+<tr> 
+    <td class="ker">postgres7</td>
+    <td>A</td>
+    <td class="tdan">AN</td>
+    <td>PostgreSQL which supports LIMIT and other version 7 functionality.</td>
+    <td>Y</td>
+    <td>PostgreSQL client</td>
+    <td>Unix and Windows</td>
+</tr>
+<tr> 
+    <td class="ker">postgres8</td>
+    <td>A</td>
+    <td class="tda">A</td>
+    <td>Currently identical to postgres7</td>
+    <td>Y</td>
+    <td>PostgreSQL client</td>
+    <td>Unix and Windows</td>
+</tr>
+<tr> 
+    <td class="ker">sapdb</td>
+    <td>C</td>
+    <td class="tdn">N</td>
+    <td>SAP DB. Should work reliably as based on ODBC driver.</td>
+    <td>Y/N</td>
+    <td>SAP ODBC client</td>
+    <td>?</td>
+</tr>
+<tr> 
+    <td class="ker">sqlanywhere</td>
+    <td>C</td>
+    <td class="tdn">N</td>
+    <td>Sybase SQL Anywhere. Should work reliably as based on ODBC driver.</td>
+    <td>Y/N</td>
+    <td>SQL Anywhere ODBC client</td>
+    <td>?</td>
+</tr>
+<tr> 
+    <td class="ker">sqlite</td>
+    <td>B</td>
+    <td class="tdn">N</td>
+    <td>SQLite</td>
+    <td>Y</td>
+    <td>-</td>
+    <td>Unix and Windows</td>
+</tr>
+<tr> 
+    <td class="ker">sqlitepo</td>
+    <td>B</td>
+    <td class="tdn">N</td>
+    <td>Portable SQLite driver. This is because assoc mode does not work like other drivers in sqlite. 
+		Namely, when selecting (joining) multiple tables, the table names are included in the assoc keys 
+		in the "sqlite" driver. In "sqlitepo" driver, the table names are stripped from the returned 
+		column names. When this results in a conflict, the first field get preference.
+	</td>
+    <td>Y</td>
+    <td>-</td>
+    <td>Unix and Windows</td>
+</tr>
+<tr> 
+    <td class="ker">sybase</td>
+    <td>C</td>
+    <td class="tdn">N</td>
+    <td>Sybase</td>
+    <td>Y/N</td>
+    <td>Sybase client</td>
+    <td>Unix and Windows</td>
+</tr>
+<tr> 
+    <td class="ker">sybase_ase</td>
+    <td>C</td>
+    <td class="tdn">N</td>
+    <td>Sybase ASE</td>
+    <td>Y/N</td>
+    <td>Sybase client</td>
+    <td>Unix and Windows</td>
+</tr>
+</table>
+
+<p>The "Tested" column indicates how extensively the code has been tested and used with ADODB.<br />
+A = well tested and used by many people<br />
+B = tested and usable, but some features might not be implemented<br />
+C = user contributed or experimental driver. Might not fully support all of the latest features of ADOdb</p>
+
+<p>The "Elxis Tested" column indicates how extensively the Specific Database/driver has been tested with elxis<br />
+<span style="background:#009900;">A = Well tested and used</span><br />
+<span style="background:#66cc99;">B = Tested and usable, but some features might not be implemented</span><br />
+<span style="background:#ff6633;">C = Tested but not usable</span><br />
+<span style="background:#33cc66;">AN = Not tested but most probably will work fine</span><br />
+<span style="background:#cecece;">N = Not Tested</span></p>
+
+<p>The column "RecordCount() usable" indicates whether RecordCount() return the number 
+of rows, or returns -1 when a SELECT statement is executed. If this column displays Y/N 
+then the RecordCount() is emulated when the global variable $ADODB_COUNTRECS=true, which 
+is the default. Note that for large recordsets, it might be better to disable RecordCount() 
+emulation because substantial amounts of memory are required to cache the recordset for counting. 
+This variable is checked every time a query is executed, so you can selectively choose 
+which recordsets to count.</p>
+<div align="center"><a href="http://www.elxis.org" target="_blank">Elxis CMS</a> (C) 2006-2009<br /></div>
+</body>
+</html>

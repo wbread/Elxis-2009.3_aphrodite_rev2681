@@ -1,0 +1,1645 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema version="0.3">
+	<table name="banner">
+		<field name="bid" type="I">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="cid" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="type" type="C" size="10">
+			<NOTNULL />
+			<DEFAULT value="banner" />
+		</field>
+		<field name="name" type="C" size="50"></field>
+		<field name="imptotal" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="impmade" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="clicks" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="imageurl" type="C" size="100"></field>
+		<field name="clickurl" type="C" size="200">
+			<NOTNULL />
+		</field>
+		<field name="dateadded" type="T">
+			<NOTNULL />
+			<DEFTIMESTAMP/>
+		</field>
+		<field name="showbanner" type="I1">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="checked_out" type="I1">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="checked_out_time" type="T">
+			<NOTNULL />
+			<DEFAULT value="1979-12-19 00:00:00" />
+		</field>
+		<field name="editor" type="C" size="50"></field>
+		<field name="custombannercode" type="X"></field>
+		<field name="targetbanner" type="I1">
+			<NOTNULL />
+			<DEFAULT value="1" />
+		</field>
+		<index name="viewbanner">
+			<col>showbanner</col>
+		</index>
+	</table>
+
+	<table name="bannerclient">
+		<field name="cid" type="I">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="name" type="C" size="60"></field>
+		<field name="contact" type="C" size="60"></field>
+		<field name="email" type="C" size="60"></field>
+		<field name="extrainfo" type="X"></field>
+		<field name="checked_out" type="I1">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="checked_out_time" type="T"></field>
+		<field name="editor" type="C" size="50"></field>
+	</table>
+
+	<table name="bannerfinish">
+		<field name="bid" type="I">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="cid" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="type" type="C" size="10"></field>
+		<field name="name" type="C" size="50"></field>
+		<field name="impressions" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="clicks" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="imageurl" type="C" size="50"></field>
+		<field name="datestart" type="T"></field>
+		<field name="dateend" type="T"></field>
+	</table>
+
+	<table name="categories">
+		<field name="id" type="I">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="parent_id" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="title" type="C" size="120"></field>
+		<field name="name" type="C" size="255"></field>
+		<field name="image" type="C" size="100"></field>
+		<field name="section" type="C" size="120"></field>
+		<field name="image_position" type="C" size="10"></field>
+		<field name="description" type="X"></field>
+		<field name="published" type="I1">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="checked_out" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="checked_out_time" type="T">
+			<NOTNULL />
+			<DEFAULT value="1979-12-19 00:00:00" />
+		</field>
+		<field name="editor" type="C" size="50"></field>
+		<field name="ordering" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="access" type="I4">
+			<NOTNULL />
+			<DEFAULT value="29" />
+		</field>
+		<field name="count" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="params" type="X"></field>
+		<field name="language" type="C" size="255"></field>
+		<field name="seotitle" type="C" size="255"></field>
+		<index name="cat_idx">
+			<col>section</col>
+			<col>published</col>
+			<col>access</col>
+		</index>
+		<index name="idx_section">
+			<col>section</col>
+		</index>
+		<index name="idx_access">
+			<col>access</col>
+		</index>
+		<index name="idx_checkout">
+			<col>checked_out</col>
+		</index>
+	</table>
+
+	<table name="comments">
+		<field name="cid" type="I">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="origin" type="I1">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="articleid" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="cmessage" type="X2"></field>
+		<field name="ctimestamp" type="C" size="20"></field>
+		<field name="ipaddress" type="C" size="64"></field>
+		<field name="userid" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="author" type="C" size="80"></field>
+		<field name="email" type="C" size="120"></field>
+		<field name="published" type="I1">
+			<NOTNULL />
+			<DEFAULT value="1" />
+		</field>
+		<field name="notify" type="I4">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+	</table>
+
+	<table name="components">
+		<field name="id" type="I">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="name" type="C" size="120">
+		</field>
+		<field name="link" type="C" size="255"></field>
+		<field name="menuid" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="parent" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="admin_menu_link" type="C" size="255"></field>
+		<field name="admin_menu_alt" type="C" size="255"></field>
+		<field name="option" type="C" size="50"></field>
+		<field name="ordering" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="admin_menu_img" type="C" size="255"></field>
+		<field name="iscore" type="I1">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="params" type="X"></field>
+	</table>
+	<sql>
+		<query><![CDATA[INSERT INTO components VALUES (1, 'Banners', NULL, 0, 0, NULL, 'Banner Management', 'com_banners', 0, 'js/ThemeOffice/component.png', 0, NULL)]]></query>
+		<query><![CDATA[INSERT INTO components VALUES (2, 'Manage Banners', NULL, 0, 1, 'option=com_banners', 'Active Banners', 'com_banners', 1, 'js/ThemeOffice/edit.png', 0, NULL)]]></query>
+		<query><![CDATA[INSERT INTO components VALUES (3, 'Manage Clients', NULL, 0, 1, 'option=com_banners&task=listclients', 'Manage Clients', 'com_banners', 2, 'js/ThemeOffice/categories.png', 0, NULL)]]></query>
+		<query><![CDATA[INSERT INTO components VALUES (4, 'Web Links', 'option=com_weblinks', 0, 0, NULL, 'Manage Weblinks', 'com_weblinks', 0, 'js/ThemeOffice/globe2.png', 0, NULL)]]></query>
+		<query><![CDATA[INSERT INTO components VALUES (5, 'Weblink Items', NULL, 0, 4, 'option=com_weblinks', 'View existing weblinks', 'com_weblinks', 1, 'js/ThemeOffice/edit.png', 0, NULL)]]></query>
+		<query><![CDATA[INSERT INTO components VALUES (6, 'Weblink Categories', NULL, 0, 4, 'option=categories&section=com_weblinks', 'Manage weblink categories', NULL, 2, 'js/ThemeOffice/categories.png', 0, NULL)]]></query>
+		<query><![CDATA[INSERT INTO components VALUES (7, 'Contacts', 'option=com_contact', 0, 0, NULL, 'Edit contact details', 'com_contact', 0, 'js/ThemeOffice/user.png', 1, NULL)]]></query>
+		<query><![CDATA[INSERT INTO components VALUES (8, 'Manage Contacts', NULL, 0, 7, 'option=com_contact', 'Edit contact details', 'com_contact', 0, 'js/ThemeOffice/edit.png', 1, NULL)]]></query>
+		<query><![CDATA[INSERT INTO components VALUES (9, 'Contact Categories', NULL, 0, 7, 'option=categories&section=com_contact_details', 'Manage contact categories', NULL, 2, 'js/ThemeOffice/categories.png', 1, NULL)]]></query>
+		<query><![CDATA[INSERT INTO components VALUES (10, 'FrontPage', 'option=com_frontpage', 0, 0, NULL, 'Manage Front Page Items', 'com_frontpage', 0, 'js/ThemeOffice/component.png', 1, NULL)]]></query>
+		<query><![CDATA[INSERT INTO components VALUES (11, 'Polls', 'option=com_poll', 0, 0, 'option=com_poll', 'Manage Polls', 'com_poll', 0, 'js/ThemeOffice/component.png', 0, NULL)]]></query>
+		<query><![CDATA[INSERT INTO components VALUES (12, 'News Feeds', 'option=com_newsfeeds', 0, 0, NULL, 'News Feeds Management', 'com_newsfeeds', 0, 'js/ThemeOffice/component.png', 0, NULL)]]></query>
+		<query><![CDATA[INSERT INTO components VALUES (13, 'Manage News Feeds', NULL, 0, 12, 'option=com_newsfeeds', 'Manage News Feeds', 'com_newsfeeds', 1, 'js/ThemeOffice/edit.png', 0, NULL)]]></query>
+		<query><![CDATA[INSERT INTO components VALUES (14, 'Manage Categories', NULL, 0, 12, 'option=com_categories&section=com_newsfeeds', 'Manage Categories', NULL, 2, 'js/ThemeOffice/categories.png', 0, NULL)]]></query>
+		<query><![CDATA[INSERT INTO components VALUES (15, 'Login', 'option=com_login', 0, 0, NULL, NULL, 'com_login', 0, NULL, 1, NULL)]]></query>
+		<query><![CDATA[INSERT INTO components VALUES (16, 'Search', 'option=com_search', 0, 0, NULL, NULL, 'com_search', 0, NULL, 1, NULL)]]></query>
+		<query><![CDATA[INSERT INTO components VALUES (17, 'Syndicate', NULL, 0, 0, 'option=com_syndicate', 'Manage Syndication Settings', 'com_syndicate', 0, 'js/ThemeOffice/component.png', 0, 'cache=1\ncache_time=3600\ncount=5\ntitle=Elxis RSS feeds\ndescription=Elxis website syndication\nmultilingual=1\nimage_file=\nimage_alt=Generated by Elxis CMS\nlimit_text=1\ntext_length=20\norderby=front\nlive_bookmark=rss20.xml\nbookmark_file=')]]></query>
+		<query><![CDATA[INSERT INTO components VALUES (18, 'Mass Mail', NULL, 0, 0, 'option=com_massmail&hidemainmenu=1', 'Send Mass Mail', 'com_massmail', 0, 'js/ThemeOffice/mass_email.png', 0, NULL)]]></query>
+		<query><![CDATA[INSERT INTO components VALUES (19, 'Database Manager', NULL, 0, 0, 'option=com_database', 'Database Manager', 'com_database', 0, 'js/ThemeOffice/db.png', 1, NULL)]]></query>
+		<query><![CDATA[INSERT INTO components VALUES (20, 'Manage Database', NULL, 0, 19, 'option=com_database', 'Manage Database', 'com_database', 0, 'js/ThemeOffice/db.png', 1, NULL)]]></query>
+		<query><![CDATA[INSERT INTO components VALUES (21, 'View Backups', NULL, 0, 19, 'option=com_database&task=backup', 'View Backups', 'com_database', 1, 'js/ThemeOffice/backup.png', 1, NULL)]]></query>
+		<query><![CDATA[INSERT INTO components VALUES (22, 'Monitor Stats', NULL, 0, 19, 'option=com_database&task=monitor&do=stats', 'Monitor Stats', 'com_database', 2, 'js/ThemeOffice/statistics.png', 1, NULL)]]></query>
+		<query><![CDATA[INSERT INTO components VALUES (23, 'Monitor Tables', NULL, 0, 19, 'option=com_database&task=monitor&do=tables', 'Monitor Tables', 'com_database', 3, 'js/ThemeOffice/preview.png', 1, NULL)]]></query>
+		<query><![CDATA[INSERT INTO components VALUES (24, 'SoftDisk', NULL, 0, 0, 'option=com_softdisk', 'SoftDisk', 'com_softdisk', 0, 'js/ThemeOffice/component.png', 1, NULL)]]></query>
+		<query><![CDATA[INSERT INTO components VALUES (25, 'eBlog', 'option=com_eblog', 0, 0, 'option=com_eblog', 'Elxis Blog', 'com_eblog', 0, 'js/ThemeOffice/component.png', 1, NULL)]]></query>
+	</sql>
+	<table name="contact_details">
+		<field name="id" type="I">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="name" type="C" size="100"></field>
+		<field name="con_position" type="C" size="50"></field>
+		<field name="address" type="X"></field>
+		<field name="suburb" type="C" size="50"></field>
+		<field name="state" type="C" size="20"></field>
+		<field name="country" type="C" size="50"></field>
+		<field name="postcode" type="C" size="10"></field>
+		<field name="telephone" type="C" size="25"></field>
+		<field name="fax" type="C" size="25"></field>
+		<field name="misc" type="X"></field>
+		<field name="image" type="C" size="100"></field>
+		<field name="imagepos" type="C" size="20"></field>
+		<field name="email_to" type="C" size="100"></field>
+		<field name="default_con" type="I1">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="published" type="I1">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="checked_out" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="checked_out_time" type="T">
+			<NOTNULL />
+			<DEFAULT value="1979-12-19 00:00:00" />
+		</field>
+		<field name="ordering" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="params" type="X"></field>
+		<field name="user_id" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="catid" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="access" type="I4">
+			<NOTNULL />
+			<DEFAULT value="29" />
+		</field>
+		<field name="seotitle" type="C" size="255"></field>
+	</table>
+
+	<table name="content">
+		<field name="id" type="I">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="title" type="C2" size="255"></field>
+		<field name="seotitle" type="C2" size="255"></field>
+		<field name="introtext" type="X2">
+			<NOTNULL />
+		</field>
+		<field name="maintext" type="X2"></field>
+		<field name="state" type="I1">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="sectionid" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="mask" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="catid" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="created" type="T">
+			<NOTNULL />
+			<DEFAULT value="1979-12-19 00:00:00" />
+		</field>
+		<field name="created_by" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="created_by_alias" type="C" size="100"></field>
+		<field name="modified" type="T">
+			<NOTNULL />
+			<DEFAULT value="1979-12-19 00:00:00" />
+		</field>
+		<field name="modified_by" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="checked_out" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="checked_out_time" type="T">
+			<NOTNULL />
+			<DEFAULT value="1979-12-19 00:00:00" />
+		</field>
+		<field name="publish_up" type="T">
+			<NOTNULL />
+			<DEFAULT value="1979-12-19 00:00:00" />
+		</field>
+		<field name="publish_down" type="T">
+			<NOTNULL />
+			<DEFAULT value="2060-01-01 00:00:00" />
+		</field>
+		<field name="images" type="X"></field>
+		<field name="urls" type="X"></field>
+		<field name="attribs" type="X"></field>
+		<field name="version" type="I">
+			<NOTNULL />
+			<DEFAULT value="1" />
+		</field>
+		<field name="parentid" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="ordering" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="metakey" type="X"></field>
+		<field name="metadesc" type="X"></field>
+		<field name="access" type="I4">
+			<NOTNULL />
+			<DEFAULT value="29" />
+		</field>
+		<field name="hits" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="language" type="C" size="255"></field>
+		<index name="idx_section">
+			<col>sectionid</col>
+		</index>
+		<index name="idx_access">
+			<col>access</col>
+		</index>
+		<index name="idx_checkout">
+			<col>checked_out</col>
+		</index>
+		<index name="idx_state">
+			<col>state</col>
+		</index>
+		<index name="idx_catid">
+			<col>catid</col>
+		</index>
+		<index name="idx_mask">
+			<col>mask</col>
+		</index>
+	</table>
+
+	<table name="content_frontpage">
+		<field name="content_id" type="I">
+			<KEY />
+			<DEFAULT value="0" />
+		</field>
+		<field name="ordering" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+	</table>
+	<table name="content_rating">
+		<field name="content_id" type="I">
+			<KEY />
+			<DEFAULT value="0" />
+		</field>
+		<field name="rating_sum" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="rating_count" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="lastip" type="C" size="50"></field>
+		<field name="lasttime" type="C" size="30"></field>
+	</table>
+
+	<table name="core_acl_access_lists">
+		<field name="list_id" type="I">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="aco_section" type="C" size="200">
+			<NOTNULL />
+			<DEFAULT value="administration" />
+		</field>
+		<field name="aco_value" type="C" size="200">
+			<NOTNULL />
+			<DEFAULT value="login" />
+		</field>
+		<field name="aro_section" type="C" size="200">
+			<NOTNULL />
+			<DEFAULT value="users" />
+		</field>
+		<field name="aro_value" type="C" size="200">
+			<NOTNULL />
+			<DEFAULT value="super administrator" />
+		</field>
+		<field name="axo_section" type="C" size="200"></field>
+		<field name="axo_value" type="C" size="200"></field>
+	</table>
+	<sql>
+		<query>INSERT INTO core_acl_access_lists VALUES (1, 'administration', 'login', 'users', 'administrator', NULL, NULL)</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (2, 'administration', 'login', 'users', 'super administrator', NULL, NULL)</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (3, 'administration', 'login', 'users', 'manager', NULL, NULL)</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (4, 'administration', 'config', 'users', 'super administrator', NULL, NULL)</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (5, 'administration', 'install', 'users', 'super administrator', 'templates', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (6, 'administration', 'install', 'users', 'super administrator', 'languages', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (7, 'administration', 'install', 'users', 'super administrator', 'modules', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (8, 'administration', 'install', 'users', 'super administrator', 'components', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (9, 'administration', 'install', 'users', 'super administrator', 'mambots', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (10, 'administration', 'install', 'users', 'administrator', 'modules', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (11, 'administration', 'install', 'users', 'administrator', 'components', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (12, 'administration', 'install', 'users', 'administrator', 'mambots', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (13, 'administration', 'manage', 'users', 'super administrator', 'components', 'com_templates')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (14, 'administration', 'manage', 'users', 'super administrator', 'components', 'com_trash')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (15, 'administration', 'manage', 'users', 'super administrator', 'components', 'com_menumanager')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (16, 'administration', 'manage', 'users', 'super administrator', 'components', 'com_languages')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (17, 'administration', 'manage', 'users', 'super administrator', 'components', 'com_massmail')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (18, 'administration', 'manage', 'users', 'super administrator', 'components', 'com_users')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (19, 'administration', 'manage', 'users', 'super administrator', 'components', 'com_access')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (20, 'administration', 'manage', 'users', 'super administrator', 'components', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (21, 'administration', 'manage', 'users', 'administrator', 'components', 'com_trash')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (22, 'administration', 'manage', 'users', 'administrator', 'components', 'com_menumanager')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (23, 'administration', 'manage', 'users', 'administrator', 'components', 'com_users')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (24, 'administration', 'edit', 'users', 'super administrator', 'modules', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (25, 'administration', 'edit', 'users', 'super administrator', 'mambots', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (26, 'administration', 'edit', 'users', 'super administrator', 'components', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (27, 'administration', 'edit', 'users', 'super administrator', 'user properties', 'block_user')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (28, 'administration', 'edit', 'users', 'administrator', 'modules', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (29, 'administration', 'edit', 'users', 'administrator', 'mambots', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (30, 'administration', 'edit', 'users', 'administrator', 'components', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (31, 'administration', 'edit', 'users', 'administrator', 'user properties', 'block_user')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (32, 'administration', 'edit', 'users', 'manager', 'components', 'com_newsflash')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (33, 'administration', 'edit', 'users', 'manager', 'components', 'com_frontpage')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (34, 'administration', 'edit', 'users', 'manager', 'components', 'com_media')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (35, 'workflow', 'email_events', 'users', 'super administrator', NULL, NULL)</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (36, 'workflow', 'email_events', 'users', 'administrator', NULL, NULL)</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (37, 'action', 'add', 'users', 'super administrator', 'content', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (38, 'action', 'add', 'users', 'administrator', 'content', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (39, 'action', 'add', 'users', 'manager', 'content', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (40, 'action', 'add', 'users', 'author', 'content', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (41, 'action', 'add', 'users', 'editor', 'content', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (42, 'action', 'add', 'users', 'publisher', 'content', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (43, 'action', 'edit', 'users', 'super administrator', 'content', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (44, 'action', 'edit', 'users', 'administrator', 'content', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (45, 'action', 'edit', 'users', 'manager', 'content', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (46, 'action', 'edit', 'users', 'author', 'content', 'own')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (47, 'action', 'edit', 'users', 'editor', 'content', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (48, 'action', 'edit', 'users', 'publisher', 'content', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (49, 'action', 'publish', 'users', 'super administrator', 'content', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (50, 'action', 'publish', 'users', 'administrator', 'content', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (51, 'action', 'publish', 'users', 'manager', 'content', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (52, 'action', 'publish', 'users', 'publisher', 'content', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (53, 'action', 'view', 'users', 'super administrator', 'components', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (54, 'action', 'view', 'users', 'administrator', 'components', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (55, 'action', 'view', 'users', 'manager', 'components', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (56, 'action', 'view', 'users', 'publisher', 'components', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (57, 'action', 'view', 'users', 'editor', 'components', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (58, 'action', 'view', 'users', 'author', 'components', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (59, 'action', 'view', 'users', 'registered', 'components', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (60, 'action', 'view', 'users', 'public backend', 'components', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (61, 'action', 'view', 'users', 'public frontend', 'components', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (62, 'action', 'view', 'users', 'super administrator', 'profile', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (63, 'action', 'view', 'users', 'administrator', 'profile', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (64, 'action', 'view', 'users', 'manager', 'profile', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (65, 'action', 'view', 'users', 'publisher', 'profile', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (66, 'action', 'view', 'users', 'editor', 'profile', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (67, 'action', 'view', 'users', 'author', 'profile', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (68, 'action', 'view', 'users', 'registered', 'profile', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (69, 'administration', 'install', 'users', 'super administrator', 'bridges', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (70, 'administration', 'install', 'users', 'administrator', 'bridges', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (71, 'administration', 'edit', 'users', 'super administrator', 'bridges', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (72, 'administration', 'edit', 'users', 'administrator', 'bridges', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (73, 'action', 'upload', 'users', 'registered', 'files', 'avatars')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (74, 'action', 'upload', 'users', 'author', 'files', 'images')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (75, 'action', 'upload', 'users', 'editor', 'files', 'images')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (76, 'action', 'upload', 'users', 'publisher', 'files', 'images')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (77, 'action', 'upload', 'users', 'manager', 'files', 'images')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (78, 'action', 'upload', 'users', 'administrator', 'files', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (79, 'action', 'upload', 'users', 'super administrator', 'files', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (80, 'administration', 'install', 'users', 'super administrator', 'tools', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (81, 'administration', 'install', 'users', 'administrator', 'tools', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (82, 'administration', 'edit', 'users', 'super administrator', 'tools', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (83, 'administration', 'edit', 'users', 'administrator', 'tools', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (84, 'action', 'edit', 'users', 'super administrator', 'profile', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (85, 'action', 'edit', 'users', 'administrator', 'profile', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (86, 'action', 'edit', 'users', 'manager', 'profile', 'own')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (87, 'action', 'edit', 'users', 'publisher', 'profile', 'own')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (88, 'action', 'edit', 'users', 'editor', 'profile', 'own')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (89, 'action', 'edit', 'users', 'author', 'profile', 'own')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (90, 'action', 'edit', 'users', 'registered', 'profile', 'own')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (91, 'action', 'add', 'users', 'super administrator', 'weblinks', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (92, 'action', 'add', 'users', 'administrator', 'weblinks', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (93, 'action', 'add', 'users', 'manager', 'weblinks', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (94, 'action', 'add', 'users', 'publisher', 'weblinks', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (95, 'action', 'add', 'users', 'editor', 'weblinks', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (96, 'action', 'add', 'users', 'author', 'weblinks', 'all')</query>
+		<query>INSERT INTO core_acl_access_lists VALUES (97, 'action', 'add', 'users', 'registered', 'weblinks', 'all')</query>
+	</sql>
+	<table name="core_acl_aro">
+		<field name="aro_id" type="I">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="section_value" type="C" size="240">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="value" type="C" size="240"></field>
+		<field name="order_value" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="name" type="C" size="255"></field>
+		<field name="hidden" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<index name="section_value_value_aro">
+			<UNIQUE/>
+			<col>section_value(100)</col>
+			<col>value(100)</col>
+		</index>
+		<index name="gacl_hidden_aro">
+			<col>hidden</col>
+		</index>
+	</table>
+	<table name="core_acl_aro_groups">
+		<field name="group_id" type="I">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="parent_id" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="name" type="C" size="255"></field>
+		<field name="lft" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="rgt" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<index name="parent_id_aro_groups">
+			<col>parent_id</col>
+		</index>
+		<index name="gacl_parent_id_aro_groups">
+			<col>parent_id</col>
+		</index>
+		<index name="gacl_lft_rgt_aro_groups">
+			<col>lft</col>
+			<col>rgt</col>
+		</index>
+	</table>
+	<sql>
+		<query>INSERT INTO core_acl_aro_groups VALUES (17,0,'ROOT',1,22)</query>
+		<query>INSERT INTO core_acl_aro_groups VALUES (28,17,'USERS',2,21)</query>
+		<query>INSERT INTO core_acl_aro_groups VALUES (29,28,'Public Frontend',3,12)</query>
+		<query>INSERT INTO core_acl_aro_groups VALUES (18,29,'Registered',4,11)</query>
+		<query>INSERT INTO core_acl_aro_groups VALUES (19,18,'Author',5,10)</query>
+		<query>INSERT INTO core_acl_aro_groups VALUES (20,19,'Editor',6,9)</query>
+		<query>INSERT INTO core_acl_aro_groups VALUES (21,20,'Publisher',7,8)</query>
+		<query>INSERT INTO core_acl_aro_groups VALUES (30,28,'Public Backend',13,20)</query>
+		<query>INSERT INTO core_acl_aro_groups VALUES (23,30,'Manager',14,19)</query>
+		<query>INSERT INTO core_acl_aro_groups VALUES (24,23,'Administrator',15,18)</query>
+		<query>INSERT INTO core_acl_aro_groups VALUES (25,24,'Super Administrator',16,17)</query>
+	</sql>
+	<table name="core_acl_aro_sections">
+		<field name="section_id" type="I">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="value" type="C" size="230"></field>
+		<field name="order_value" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="name" type="C" size="230"></field>
+		<field name="hidden" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<index name="value_aro_sections">
+			<UNIQUE/>
+			<col>value</col>
+		</index>
+		<index name="gacl_value_aro_sections">
+			<UNIQUE/>
+			<col>value</col>
+		</index>
+		<index name="hidden_aro_sections">
+			<col>hidden</col>
+		</index>
+		<index name="gacl_hidden_aro_sections">
+			<col>hidden</col>
+		</index>
+	</table>
+	<sql>
+		<query>INSERT INTO core_acl_aro_sections VALUES (10, 'users', 1, 'Users', 0)</query>
+	</sql>
+	<table name="core_acl_groups_aro_map">
+		<field name="group_id" type="I">
+			<KEY />
+			<DEFAULT value="0" />
+		</field>
+		<field name="section_value" type="C" size="240"></field>
+		<field name="aro_id" type="I">
+			<KEY />
+			<DEFAULT value="0" />
+		</field>
+		<index name="group_id_aro_id_groups_aro_map">
+			<UNIQUE/>
+			<col>group_id</col>
+			<col>aro_id</col>
+		</index>
+	</table>
+	<table name="core_log_items">
+		<field name="time_stamp" type="D">
+			<NOTNULL />
+			<DEFAULT value="1979-12-19" />
+		</field>
+		<field name="item_table" type="C" size="50"></field>
+		<field name="item_id" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="hits" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+	</table>
+	<table name="core_log_searches">
+		<field name="search_term" type="C" size="128"></field>
+		<field name="hits" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+	</table>
+
+	<table name="eblog">
+		<field name="id" type="I">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="title" type="C2" size="255"></field>
+		<field name="seotitle" type="C2" size="255"></field>
+		<field name="blogid" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="blogtext" type="X2"></field>
+		<field name="dateadded" type="T">
+			<NOTNULL />
+			<DEFAULT value="1979-12-19 00:00:00" />
+		</field>
+		<field name="language" type="C2" size="255"></field>
+		<field name="hits" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="tags" type="C2" size="255"></field>
+		<field name="published" type="I2">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+	</table>
+
+	<table name="eblog_settings">
+		<field name="blogid" type="I">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="title" type="C2" size="255"></field>
+		<field name="seotitle" type="C2" size="255"></field>
+		<field name="slogan" type="X2"></field>
+		<field name="ownerid" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="showtags" type="I2">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="cssfile" type="C" size="80"></field>
+		<field name="rtlcssfile" type="C" size="80"></field>
+		<field name="allowcomments" type="I2">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="canconfig" type="I2">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="canupload" type="I2">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="numposts" type="I4">
+			<NOTNULL />
+			<DEFAULT value="10" />
+		</field>
+		<field name="mediasize" type="I">
+			<NOTNULL />
+			<DEFAULT value="2000" />
+		</field>
+		<field name="footerarchive" type="I2">
+			<NOTNULL />
+			<DEFAULT value="1" />
+		</field>
+		<field name="showownertop" type="I2">
+			<NOTNULL />
+			<DEFAULT value="1" />
+		</field>
+		<field name="published" type="I2">
+			<NOTNULL />
+			<DEFAULT value="1" />
+		</field>
+		<field name="share" type="I2">
+			<NOTNULL />
+			<DEFAULT value="1" />
+		</field>
+		<field name="params" type="X"></field>
+	</table>
+
+	<table name="groups">
+		<field name="id" type="I">
+			<KEY />
+			<DEFAULT value="0" />
+		</field>
+		<field name="name" type="C" size="50"></field>
+	</table>
+	<sql>
+		<query>INSERT INTO groups VALUES (0, 'Public')</query>
+		<query>INSERT INTO groups VALUES (1, 'Registered')</query>
+		<query>INSERT INTO groups VALUES (2, 'Special')</query>
+	</sql>
+
+	<table name="mambots">
+		<field name="id" type="I">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="name" type="C" size="100"></field>
+		<field name="element" type="C" size="100"></field>
+		<field name="folder" type="C" size="100"></field>
+		<field name="access" type="I4">
+			<NOTNULL />
+			<DEFAULT value="29" />
+		</field>
+		<field name="ordering" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="published" type="I1">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="iscore" type="I1">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="client_id" type="I4">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="checked_out" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="checked_out_time" type="T">
+			<NOTNULL />
+			<DEFAULT value="1979-12-19 00:00:00" />
+		</field>
+		<field name="params" type="X"></field>
+		<index name="idx_folder">
+			<col>published</col>
+			<col>client_id</col>
+			<col>access</col>
+			<col>folder</col>
+		</index>
+	</table>
+	<sql>
+		<query>INSERT INTO mambots VALUES (1, 'MOS Image', 'mosimage', 'content', 29, -10000, 1, 1, 0, 0, '1979-12-19 00:00:00', NULL)</query>
+		<query>INSERT INTO mambots VALUES (2, 'MOS Pagination', 'mospaging', 'content', 29, 10000, 1, 1, 0, 0, '1979-12-19 00:00:00', NULL)</query>
+		<query>INSERT INTO mambots VALUES (3, 'Legacy Mambot Includer', 'legacybots', 'content', 29, 3, 1, 1, 0, 0, '1979-12-19 00:00:00', NULL)</query>
+		<query>INSERT INTO mambots VALUES (4, 'SEF', 'mossef', 'content', 29, 5, 1, 0, 0, 0, '1979-12-19 00:00:00', NULL)</query>
+		<query>INSERT INTO mambots VALUES (5, 'MOS Rating', 'mosvote', 'content', 29, 6, 1, 1, 0, 0, '1979-12-19 00:00:00', NULL)</query>
+		<query>INSERT INTO mambots VALUES (6, 'Search Content', 'content.searchbot', 'search', 29, 1, 1, 1, 0, 0, '1979-12-19 00:00:00', 'search_limit=30')</query>
+		<query>INSERT INTO mambots VALUES (7, 'Search Weblinks', 'weblinks.searchbot', 'search', 29, 2, 1, 1, 0, 0, '1979-12-19 00:00:00', 'search_limit=30')</query>
+		<query>INSERT INTO mambots VALUES (8, 'Code support', 'moscode', 'content', 29, 4, 0, 0, 0, 0, '1979-12-19 00:00:00', NULL)</query>
+		<query>INSERT INTO mambots VALUES (9, 'No WYSIWYG Editor', 'none', 'editors', 18, 1, 0, 1, 0, 0, '1979-12-19 00:00:00', NULL)</query>
+		<query>INSERT INTO mambots VALUES (10, 'TinyMCE WYSIWYG Editor', 'tinymce', 'editors', 18, 2, 1, 1, 0, 0, '1979-12-19 00:00:00', 'theme=advanced\nentity_encoding=raw')</query>
+		<query>INSERT INTO mambots VALUES (11, 'MOS Image Editor Button', 'mosimage.btn', 'editors-xtd', 18, 0, 1, 0, 0, 0, '1979-12-19 00:00:00', NULL)</query>
+		<query>INSERT INTO mambots VALUES (12, 'MOS Pagebreak Editor Button', 'mospage.btn', 'editors-xtd', 18, 0, 1, 0, 0, 0, '1979-12-19 00:00:00', NULL)</query>
+		<query>INSERT INTO mambots VALUES (13, 'Search Contacts', 'contacts.searchbot', 'search', 29, 3, 1, 1, 0, 0, '1979-12-19 00:00:00', NULL)</query>
+		<query>INSERT INTO mambots VALUES (14, 'Search Categories', 'categories.searchbot', 'search', 29, 4, 1, 0, 0, 0, '1979-12-19 00:00:00', 'search_limit=30')</query>
+		<query>INSERT INTO mambots VALUES (15, 'Search Sections', 'sections.searchbot', 'search', 29, 5, 1, 0, 0, 0, '1979-12-19 00:00:00', 'search_limit=30')</query>
+		<query>INSERT INTO mambots VALUES (16, 'Email Cloaking', 'mosemailcloak', 'content', 29, 7, 1, 0, 0, 0, '1979-12-19 00:00:00', NULL)</query>
+		<query>INSERT INTO mambots VALUES (17, 'GeSHi', 'geshi', 'content', 29, 1, 0, 0, 0, 0, '1979-12-19 00:00:00', NULL)</query>
+		<query>INSERT INTO mambots VALUES (18, 'Search Newsfeeds', 'newsfeeds.searchbot', 'search', 29, 6, 1, 0, 0, 0, '1979-12-19 00:00:00', 'search_limit=30')</query>
+		<query>INSERT INTO mambots VALUES (19, 'Load Module Positions', 'mosloadposition', 'content', 29, 8, 1, 0, 0, 0, '1979-12-19 00:00:00', NULL)</query>
+		<query>INSERT INTO mambots VALUES (20, 'MOS FLV Video', 'mosflv', 'content', 29, 2, 1, 1, 0, 0, '1979-12-19 00:00:00', 'width=320\nheight=260')</query>
+		<query>INSERT INTO mambots VALUES (21, 'MOS FLV Editor Button', 'mosflv.btn', 'editors-xtd', 18, 0, 1, 0, 0, 0, '1979-12-19 00:00:00', NULL)</query>
+		<query>INSERT INTO mambots VALUES (22, 'Search eBlog', 'eblog.searchbot', 'search', 29, 3, 1, 1, 0, 0, '1979-12-19 00:00:00', 'search_limit=30')</query>
+		<query>INSERT INTO mambots VALUES (23, 'Share - AddThis', 'share.addthis', 'content', 29, 8, 1, 1, 0, 0, '1979-12-19 00:00:00', 'username=\nglobalshow=0')</query>
+		<query>INSERT INTO mambots VALUES (24, 'Share - E-mailit', 'share.emailit', 'content', 29, 9, 1, 1, 0, 0, '1979-12-19 00:00:00', 'username=\nglobalshow=0')</query>
+		<query>INSERT INTO mambots VALUES (25, 'Translate', 'translate', 'content', 29, 10, 1, 1, 0, 0, '1979-12-19 00:00:00', 'globalshow=0')</query>
+	</sql>
+
+	<table name="menu">
+		<field name="id" type="I">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="menutype" type="C" size="25"></field>
+		<field name="name" type="C" size="100"></field>
+		<field name="link" type="X"></field>
+		<field name="type" type="C" size="50"></field>
+		<field name="published" type="I1">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="parent" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="componentid" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="sublevel" type="I">
+			<DEFAULT value="0" />
+		</field>
+		<field name="ordering" type="I">
+			<DEFAULT value="0" />
+		</field>
+		<field name="checked_out" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="checked_out_time" type="T">
+			<NOTNULL />
+			<DEFAULT value="1979-12-19 00:00:00" />
+		</field>
+		<field name="pollid" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="browserNav" type="I4">
+			<DEFAULT value="0" />
+		</field>
+		<field name="access" type="I4">
+			<NOTNULL />
+			<DEFAULT value="29" />
+		</field>
+		<field name="utaccess" type="I4">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="params" type="X"></field>
+		<field name="language" type="C" size="255"></field>
+		<field name="seotitle" type="C" size="255"></field>
+		<index name="componentid">
+			<col>componentid</col>
+			<col>menutype</col>
+			<col>published</col>
+			<col>access</col>
+		</index>
+		<index name="menutype">
+			<col>menutype</col>
+		</index>
+	</table>
+	<sql>
+		<query><![CDATA[INSERT INTO menu VALUES (1, 'systemmenu', 'Lost Password', 'index.php?option=com_registration&task=lostPassword', 'system', 1, 0, 0, 0, 1, 0, '1979-12-19 00:00:00', 0, 0, 29, 0, NULL, NULL, NULL)]]></query>
+		<query><![CDATA[INSERT INTO menu VALUES (2, 'systemmenu', 'Register', 'index.php?option=com_registration&task=register', 'system', 1, 0, 0, 0, 2, 0, '1979-12-19 00:00:00', 0, 0, 29, 0, NULL, NULL, NULL)]]></query>
+		<query><![CDATA[INSERT INTO menu VALUES (3, 'systemmenu', 'Registration complete', 'index.php?option=com_registration&task=saveRegistration', 'system', 1, 0, 0, 0, 3, 0, '1979-12-19 00:00:00', 0, 0, 29, 0, NULL, NULL, NULL)]]></query>
+		<query><![CDATA[INSERT INTO menu VALUES (4, 'systemmenu', 'Account activation', 'index.php?option=com_registration&task=activate', 'system', 1, 0, 0, 0, 4, 0, '1979-12-19 00:00:00', 0, 0, 29, 0, NULL, NULL, NULL)]]></query>
+		<query><![CDATA[INSERT INTO menu VALUES (5, 'systemmenu', 'Polls', 'index.php?option=com_poll', 'system', 1, 0, 0, 0, 5, 0, '1979-12-19 00:00:00', 0, 0, 29, 0, NULL, NULL, NULL)]]></query>
+		<query><![CDATA[INSERT INTO menu VALUES (6, 'systemmenu', 'Login', 'index.php?option=com_login', 'system', 1, 0, 0, 0, 6, 0, '1979-12-19 00:00:00', 0, 0, 29, 0, NULL, NULL, NULL)]]></query>
+		<query><![CDATA[INSERT INTO menu VALUES (7, 'systemmenu', 'Contact', 'index.php?option=com_contact', 'system', 1, 0, 0, 0, 7, 0, '1979-12-19 00:00:00', 0, 0, 29, 0, NULL, NULL, NULL)]]></query>
+	</sql>
+	<table name="messages">
+		<field name="message_id" type="I">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="user_id_from" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="user_id_to" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="folder_id" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="date_time" type="T">
+			<NOTNULL />
+			<DEFAULT value="1979-12-19 00:00:00" />
+		</field>
+		<field name="state" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="priority" type="I1">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="subject" type="C" size="255"></field>
+		<field name="message" type="X"></field>
+	</table>
+	<table name="messages_cfg">
+		<field name="user_id" type="I">
+			<KEY />
+			<DEFAULT value="0" />
+		</field>
+		<field name="cfg_name" type="C" size="100">
+			<KEY />
+		</field>
+		<field name="cfg_value" type="C" size="255"></field>
+		<index name="idx_user_var_name">
+			<UNIQUE/>
+			<col>user_id</col>
+			<col>cfg_name</col>
+		</index>
+	</table>
+	<table name="modules">
+		<field name="id" type="I">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="title" type="X"></field>
+		<field name="content" type="X"></field>
+		<field name="ordering" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="position" type="C" size="10"></field>
+		<field name="checked_out" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="checked_out_time" type="T">
+			<NOTNULL />
+			<DEFAULT value="1979-12-19 00:00:00" />
+		</field>
+		<field name="published" type="I1">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="module" type="C" size="50"></field>
+		<field name="numnews" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="access" type="I4">
+			<NOTNULL />
+			<DEFAULT value="29" />
+		</field>
+		<field name="showtitle" type="I1">
+			<NOTNULL />
+			<DEFAULT value="1" />
+		</field>
+		<field name="params" type="X"></field>
+		<field name="iscore" type="I1">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="client_id" type="I1">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="language" type="C" size="255"></field>
+		<index name="published">
+			<col>published</col>
+			<col>access</col>
+		</index>
+		<index name="idx_newsfeeds">
+			<col>module</col>
+			<col>published</col>
+		</index>
+	</table>
+	<sql>
+		<query>INSERT INTO modules VALUES (1, 'Polls', NULL, 1, 'right', 0, '1979-12-19 00:00:00', 1, 'mod_poll', 0, 29, 1, NULL, 0, 0, NULL)</query>
+		<query>INSERT INTO modules VALUES (2, 'User Menu', NULL, 3, 'left', 0, '1979-12-19 00:00:00', 1, 'mod_mainmenu', 0, 18, 1, 'menutype=usermenu\nmenu_style=list_flat', 1, 0, NULL)</query>
+		<query>INSERT INTO modules VALUES (3, 'Main Menu', NULL, 1, 'left', 0, '1979-12-19 00:00:00', 1, 'mod_mainmenu', 0,  29, 1, 'class_sfx=\nmoduleclass_sfx=\nmenutype=mainmenu\nmenu_style=vert_indent\ncache=0\nmenu_images=0\nmenu_images_align=0\nexpand_menu=0\nindent_image=0\nindent_image1=\nindent_image2=\nindent_image3=\nindent_image4=\nindent_image5=\nindent_image6=\nidpreload=0\nspacer=\nend_spacer=', 1, 0, NULL)</query>
+		<query>INSERT INTO modules VALUES (4, 'Login Form', NULL, 4, 'left', 0, '1979-12-19 00:00:00', 1, 'mod_login', 0, 29, 1, NULL, 1, 0, NULL)</query>
+		<query>INSERT INTO modules VALUES (5, 'Syndicate', NULL, 12, 'left', 0, '1979-12-19 00:00:00', 1, 'mod_rssfeed', 0, 29, 1, 'text=\ncache=0\nmoduleclass_sfx=\nrss091=1\nrss10=1\nrss20=1\natom=1\nopml=1\nrss091_image=\nrss10_image=\nrss20_image=\natom_image=\nopml_image=', 1, 0, NULL)</query>
+		<query>INSERT INTO modules VALUES (6, 'Latest News', NULL, 1, 'user2', 0, '1979-12-19 00:00:00', 0, 'mod_latestnews', 0, 29, 1, 'moduleclass_sfx=\ncache=0\ntype=1\nshow_front=0\ncount=5\ncatid=\nsecid=', 1, 0, NULL)</query>
+		<query>INSERT INTO modules VALUES (7, 'Statistics', NULL, 5, 'left', 0, '1979-12-19 00:00:00', 0, 'mod_stats', 0, 29, 1, 'serverinfo=1\nsiteinfo=1\ncounter=1\nincrease=0\nmoduleclass_sfx=', 0, 0, NULL)</query>
+		<query>INSERT INTO modules VALUES (8, 'Who\'s Online', NULL, 3, 'right', 0, '1979-12-19 00:00:00', 1, 'mod_whosonline', 0, 29, 1, 'showmode=2\nfiltergroups=0\nmoduleclass_sfx=', 0, 0, NULL)</query>
+		<query>INSERT INTO modules VALUES (9, 'Popular', NULL, 11, 'left', 0, '1979-12-19 00:00:00', 1, 'mod_mostread', 0, 29, 1, 'moduleclass_sfx=\ncache=0\ntype=1\nshow_front=0\ncount=8\ncatid=\nsecid=', 0, 0, NULL)</query>
+		<query>INSERT INTO modules VALUES (10, 'Template Chooser', NULL, 6, 'left', 0, '1979-12-19 00:00:00', 0, 'mod_templatechooser', 0, 29, 1, 'show_preview=1', 0, 0, NULL)</query>
+		<query>INSERT INTO modules VALUES (11, 'Archive', NULL, 7, 'left', 0, '1979-12-19 00:00:00', 0, 'mod_archive', 0, 29, 1, NULL, 1, 0, NULL)</query>
+		<query>INSERT INTO modules VALUES (12, 'Sections', NULL, 8, 'left', 0, '1979-12-19 00:00:00', 0, 'mod_sections', 0, 29, 1, NULL, 1, 0, NULL)</query>
+		<query>INSERT INTO modules VALUES (13, 'Newsflash', NULL, 1, 'newsflash', 0, '1979-12-19 00:00:00', 1, 'mod_newsflash', 0, 29, 0, 'catid=1\nstyle=random\nimage=0\nlink_titles=\nreadmore=0\nitem_title=0\nitems=\ncache=0\nmoduleclass_sfx=', 0, 0, NULL)</query>
+		<query>INSERT INTO modules VALUES (14, 'Related Items', NULL, 2, 'right', 0, '1979-12-19 00:00:00', 0, 'mod_related_items', 0, 29, 1, NULL, 0, 0, NULL)</query>
+		<query>INSERT INTO modules VALUES (15, 'Search', NULL, 1, 'hidden', 0, '1979-12-19 00:00:00', 1, 'mod_search', 0, 29, 0, 'moduleclass_sfx=\ncache=0\nwidth=20\ntext=\nbutton=\nbutton_pos=right\nbutton_text=', 0, 0, NULL)</query>
+		<query>INSERT INTO modules VALUES (16, 'Random Image', NULL, 4, 'right', 0, '1979-12-19 00:00:00', 0, 'mod_random_image', 0, 29, 1, NULL, 0, 0, NULL)</query>
+		<query>INSERT INTO modules VALUES (17, 'Top Menu', NULL, 1, 'top', 0, '1979-12-19 00:00:00', 1, 'mod_mainmenu', 0, 29, 0, 'class_sfx=-nav\nmoduleclass_sfx=\nmenutype=topmenu\nmenu_style=list_flat\ncache=0\nindent_image=0\nindent_image1=\nindent_image2=\nindent_image3=\nindent_image4=\nindent_image5=\nindent_image6=\nspacer=\nend_spacer=', 1, 0, NULL)</query>
+		<query>INSERT INTO modules VALUES (18, 'Banners', NULL, 1, 'banner', 0, '1979-12-19 00:00:00', 1, 'mod_banners', 0, 29, 0, 'moduleclass_sfx=-banner\nbanner_cids=\nnumshow=1\nnumperrow=0\nmbUnique=0', 1, 0, NULL)</query>
+		<query>INSERT INTO modules VALUES (19, 'Components', NULL, 2, 'cpanel', 0, '1979-12-19 00:00:00', 1, 'mod_components', 0, 999, 1, NULL, 1, 1, NULL)</query>
+		<query>INSERT INTO modules VALUES (20, 'Popular', NULL, 3, 'cpanel', 0, '1979-12-19 00:00:00', 1, 'mod_popular', 0, 999, 1, NULL, 0, 1, NULL)</query>
+		<query>INSERT INTO modules VALUES (21, 'Latest Items', NULL, 4, 'cpanel', 0, '1979-12-19 00:00:00', 1, 'mod_latest', 0, 999, 1, NULL, 0, 1, NULL)</query>
+		<query>INSERT INTO modules VALUES (22, 'Menu Stats', NULL, 5, 'cpanel', 0, '1979-12-19 00:00:00', 1, 'mod_stats', 0, 999, 1, NULL, 0, 1, NULL)</query>
+		<query>INSERT INTO modules VALUES (23, 'Unread Messages', NULL, 1, 'header', 0, '1979-12-19 00:00:00', 1, 'mod_unread', 0, 999, 1, NULL, 1, 1, NULL)</query>
+		<query>INSERT INTO modules VALUES (24, 'Online Users', NULL, 2, 'header', 0, '1979-12-19 00:00:00', 1, 'mod_online', 0, 999, 1, NULL, 1, 1, NULL)</query>
+		<query>INSERT INTO modules VALUES (25, 'Full Menu', NULL, 1, 'top', 0, '1979-12-19 00:00:00', 1, 'mod_fullmenu', 0, 999, 1, NULL, 1, 1, NULL)</query>
+		<query>INSERT INTO modules VALUES (26, 'Pathway', NULL, 1, 'pathway', 0, '1979-12-19 00:00:00', 1, 'mod_pathway', 0, 999, 1, NULL, 1, 1, NULL)</query>
+		<query>INSERT INTO modules VALUES (27, 'Toolbar', NULL, 1, 'toolbar', 0, '1979-12-19 00:00:00', 1, 'mod_toolbar', 0, 999, 1, NULL, 1, 1, NULL)</query>
+		<query>INSERT INTO modules VALUES (28, 'System Message', NULL, 1, 'inset', 0, '1979-12-19 00:00:00', 1, 'mod_mosmsg', 0, 999, 1, NULL, 1, 1, NULL)</query>
+		<query>INSERT INTO modules VALUES (29, 'Quick Icons', NULL, 1, 'icon', 0, '1979-12-19 00:00:00', 1, 'mod_quickicon', 0, 999, 1, NULL, 1, 1, NULL)</query>
+		<query>INSERT INTO modules VALUES (31, 'Other Menu', NULL, 2, 'left', 0, '1979-12-19 00:00:00', 1, 'mod_mainmenu', 0, 29, 1, 'class_sfx=\nmoduleclass_sfx=\nmenutype=othermenu\nmenu_style=list_flat\ncache=0\nmenu_images=0\nmenu_images_align=0\nexpand_menu=0\nindent_image=0\nindent_image1=\nindent_image2=\nindent_image3=\nindent_image4=\nindent_image5=\nindent_image6=\nidpreload=0\nspacer=\nend_spacer=', 0, 0, NULL)</query>
+		<query>INSERT INTO modules VALUES (32, 'Wrapper', NULL, 5, 'right', 0, '1979-12-19 00:00:00', 0, 'mod_wrapper', 0, 29, 1, NULL, 0, 0, NULL)</query>
+		<query>INSERT INTO modules VALUES (33, 'Logged', NULL, 1, 'cpanel', 0, '1979-12-19 00:00:00', 1, 'mod_logged', 0, 999, 1, NULL, 0, 1, NULL)</query>
+		<query>INSERT INTO modules VALUES (34, 'Admin Language', NULL, 3, 'topheader', 0, '1979-12-19 00:00:00', 1, 'mod_alanguage', 0, 999, 1, NULL, 1, 1, NULL)</query>
+		<query>INSERT INTO modules VALUES (35, 'Select Language', NULL, 1, 'language', 0, '1979-12-19 00:00:00', 1, 'mod_language', 0, 29, 0, 'moduleclass_sfx=-lang\nindicator=2\nlng_style=0\nsmart_switch=1', 1, 0, NULL)</query>
+		<query>INSERT INTO modules VALUES (36, 'Random Profile', NULL, 2, 'hidden', 0, '1979-12-19 00:00:00', 1, 'mod_random_profile', 0, 29, 0, 'moduleclass_sfx=\nprofstyle=extended\nnumshow=2\nshowgender=0\nshowage=0\nshowrealname=0', 1, 0, NULL)</query>
+		<query>INSERT INTO modules VALUES (37, 'Frontpage', NULL, 1, 'header', 0, '1979-12-19 00:00:00', 1, 'mod_frontpage', 0, 29, 0, 'moduleclass_sfx=\ncache=0\nsections=\ncategories=\norder=0\nperiod=900\ncat_title=1\nshow_front=0\nshow_author=1\nshow_date=1\ntextlimit=200\ntitle_link=1\nreadmore=0\ncolumns=2\ncount=10\nnum_intro=3\nshow_thumbs=1\nthumb_width=64\nthumb_height=64\nkeepratio=0', 1, 0, NULL)</query>
+		<query>INSERT INTO modules VALUES (38, 'System Menu', NULL, 3, 'hidden', 0, '1979-12-19 00:00:00', 1, 'mod_mainmenu', 0, 29, 0, 'class_sfx=\nmoduleclass_sfx=\nmenutype=systemmenu\nmenu_style=vert_indent\ncache=0\nmenu_images=0\nmenu_images_align=0\nexpand_menu=0\nindent_image=0\nindent_image1=\nindent_image2=\nindent_image3=\nindent_image4=\nindent_image5=\nindent_image6=', 0, 0, NULL)</query>
+		<query>INSERT INTO modules VALUES (39, 'Top Weblink', NULL, 4, 'hidden', 0, '1979-12-19 00:00:00', 1, 'mod_topweblink', 0, 29, 0, 'moduleclass_sfx=\nmethod=4\nfiltercat=1\nmodscreen=1\nmoddesc=0\nmoddate=1', 0, 0, NULL)</query>
+	</sql>
+	<table name="modules_menu">
+		<field name="moduleid" type="I">
+			<KEY />
+			<DEFAULT value="0" />
+		</field>
+		<field name="menuid" type="I">
+			<KEY />
+			<DEFAULT value="0" />
+		</field>
+	</table>
+	<sql>
+		<query>INSERT INTO modules_menu VALUES (1, 0)</query>
+		<query>INSERT INTO modules_menu VALUES (2, 0)</query>
+		<query>INSERT INTO modules_menu VALUES (3, 0)</query>
+		<query>INSERT INTO modules_menu VALUES (4, 0)</query>
+		<query>INSERT INTO modules_menu VALUES (5, 0)</query>
+		<query>INSERT INTO modules_menu VALUES (6, 0)</query>
+		<query>INSERT INTO modules_menu VALUES (7, 0)</query>
+		<query>INSERT INTO modules_menu VALUES (8, 0)</query>
+		<query>INSERT INTO modules_menu VALUES (9, 0)</query>
+		<query>INSERT INTO modules_menu VALUES (10, 0)</query>
+		<query>INSERT INTO modules_menu VALUES (11, 0)</query>
+		<query>INSERT INTO modules_menu VALUES (12, 0)</query>
+		<query>INSERT INTO modules_menu VALUES (13, 0)</query>
+		<query>INSERT INTO modules_menu VALUES (14, 0)</query>
+		<query>INSERT INTO modules_menu VALUES (15, 0)</query>
+		<query>INSERT INTO modules_menu VALUES (16, 0)</query>
+		<query>INSERT INTO modules_menu VALUES (17, 0)</query>
+		<query>INSERT INTO modules_menu VALUES (18, 0)</query>
+		<query>INSERT INTO modules_menu VALUES (31, 0)</query>
+		<query>INSERT INTO modules_menu VALUES (32, 0)</query>
+		<query>INSERT INTO modules_menu VALUES (35, 0)</query>
+		<query>INSERT INTO modules_menu VALUES (36, 0)</query>
+		<query>INSERT INTO modules_menu VALUES (38, 0)</query>
+		<query>INSERT INTO modules_menu VALUES (39, 0)</query>
+	</sql>
+	<table name="newsfeeds">
+		<field name="catid" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="id" type="I">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="name" type="X"></field>
+		<field name="link" type="X"></field>
+		<field name="filename" type="C" size="200"></field>
+		<field name="published" type="I1">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="numarticles" type="I">
+			<NOTNULL />
+			<DEFAULT value="1" />
+		</field>
+		<field name="cache_time" type="I">
+			<NOTNULL />
+			<DEFAULT value="3600" />
+		</field>
+		<field name="checked_out" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="checked_out_time" type="T">
+			<NOTNULL />
+			<DEFAULT value="1979-12-19 00:00:00" />
+		</field>
+		<field name="ordering" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="seotitle" type="C" size="255"></field>
+		<index name="published">
+			<col>published</col>
+		</index>
+	</table>
+	<table name="poll_data">
+		<field name="id" type="I">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="pollid" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="text" type="X"></field>
+		<field name="hits" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<index name="pollid">
+			<col>pollid</col>
+			<col>text(1)</col>
+		</index>
+	</table>
+	<table name="poll_date">
+		<field name="id" type="I">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="date" type="T">
+			<NOTNULL />
+			<DEFAULT value="1979-12-19 00:00:00" />
+		</field>
+		<field name="vote_id" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="poll_id" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="ipaddress" type="C" size="15"></field>
+		<index name="poll_id">
+			<col>poll_id</col>
+		</index>
+	</table>
+	<table name="poll_menu">
+		<field name="pollid" type="I">
+			<KEY />
+			<DEFAULT value="0" />
+		</field>
+		<field name="menuid" type="I">
+			<KEY />
+			<DEFAULT value="0" />
+		</field>
+	</table>
+	<table name="polls">
+		<field name="id" type="I">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="title" type="C" size="250"></field>
+		<field name="voters" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="checked_out" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="checked_out_time" type="T">
+			<NOTNULL />
+			<DEFAULT value="1979-12-19 00:00:00" />
+		</field>
+		<field name="published" type="I1">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="access" type="I4">
+			<NOTNULL />
+			<DEFAULT value="29" />
+		</field>
+		<field name="lag" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="language" type="C" size="255"></field>
+		<field name="locked" type="I1">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="seotitle" type="C" size="255"></field>
+	</table>
+	<table name="sections">
+		<field name="id" type="I">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="title" type="C" size="120"></field>
+		<field name="name" type="C" size="255"></field>
+		<field name="image" type="C" size="100"></field>
+		<field name="scope" type="C" size="50"></field>
+		<field name="image_position" type="C" size="10"></field>
+		<field name="description" type="X"></field>
+		<field name="published" type="I1">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="checked_out" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="checked_out_time" type="T">
+			<NOTNULL />
+			<DEFAULT value="1979-12-19 00:00:00" />
+		</field>
+		<field name="ordering" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="access" type="I4">
+			<NOTNULL />
+			<DEFAULT value="29" />
+		</field>
+		<field name="count" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="params" type="X"></field>
+		<field name="language" type="C" size="255"></field>
+		<field name="seotitle" type="C" size="255"></field>
+		<index name="idx_scope">
+			<col>scope</col>
+		</index>
+	</table>
+
+	<table name="session">
+		<field name="username" type="C" size="50"></field>
+		<field name="time" type="C" size="14"></field>
+		<field name="session_id" type="C" size="200">
+			<KEY />
+			<DEFAULT value="0" />
+		</field>
+		<field name="guest" type="I1">
+			<DEFAULT value="1" />
+		</field>
+		<field name="userid" type="I">
+			<DEFAULT value="0" />
+		</field>
+		<field name="usertype" type="C" size="50"></field>
+		<field name="gid" type="I4">
+			<NOTNULL />
+			<DEFAULT value="29" />
+		</field>
+		<field name="allowed" type="C" size="200"></field>
+		<field name="ip" type="C" size="50"></field>
+		<index name="whosonline">
+			<col>guest</col>
+			<col>usertype</col>
+		</index>
+	</table>
+
+	<table name="softdisk">
+		<field name="id" type="I">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="sdsection" type="C" size="50">
+			<NOTNULL />
+			<DEFAULT value="CORE" />
+		</field>
+		<field name="valuetype" type="C" size="20">
+			<NOTNULL />
+			<DEFAULT value="TEXT" />
+		</field>
+		<field name="sdname" type="C" size="80"></field>
+		<field name="sdvalue" type="X"></field>
+		<field name="sdsystem" type="I1">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="lastmodified" type="C" size="20">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="nodelete" type="I1">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="sdhidden" type="I1">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+	</table>
+
+	<table name="stats_agents">
+		<field name="agent" type="C" size="255"></field>
+		<field name="type" type="I1">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="hits" type="I">
+			<NOTNULL />
+			<DEFAULT value="1" />
+		</field>
+	</table>
+
+	<table name="submitted_content">
+		<field name="id" type="I">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="title" type="C2" size="255"></field>
+		<field name="seotitle" type="C2" size="255"></field>
+		<field name="introtext" type="X2">
+			<NOTNULL />
+		</field>
+		<field name="maintext" type="X2"></field>
+		<field name="scope" type="C" size="50">
+			<NOTNULL />
+			<DEFAULT value="content" />
+		</field>
+		<field name="sectionid" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="catid" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="created" type="T">
+			<NOTNULL />
+			<DEFAULT value="1979-12-19 00:00:00" />
+		</field>
+		<field name="created_by" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="metakey" type="X"></field>
+		<field name="metadesc" type="X"></field>
+		<field name="access" type="I4">
+			<NOTNULL />
+			<DEFAULT value="29" />
+		</field>
+		<field name="language" type="C" size="255"></field>
+		<field name="comments" type="X"></field>
+	</table>
+
+	<table name="template_positions">
+		<field name="id" type="I">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="position" type="C" size="20"></field>
+		<field name="description" type="C" size="255"></field>
+	</table>
+
+	<sql>
+		<query>INSERT INTO template_positions VALUES (1, 'left', NULL)</query>
+		<query>INSERT INTO template_positions VALUES (2, 'right', NULL)</query>
+		<query>INSERT INTO template_positions VALUES (3, 'top', NULL)</query>
+		<query>INSERT INTO template_positions VALUES (4, 'bottom', NULL)</query>
+		<query>INSERT INTO template_positions VALUES (5, 'inset', NULL)</query>
+		<query>INSERT INTO template_positions VALUES (6, 'banner', NULL)</query>
+		<query>INSERT INTO template_positions VALUES (7, 'header', NULL)</query>
+		<query>INSERT INTO template_positions VALUES (8, 'footer', NULL)</query>
+		<query>INSERT INTO template_positions VALUES (9, 'newsflash', NULL)</query>
+		<query>INSERT INTO template_positions VALUES (10, 'legals', NULL)</query>
+		<query>INSERT INTO template_positions VALUES (11, 'pathway', NULL)</query>
+		<query>INSERT INTO template_positions VALUES (12, 'toolbar', NULL)</query>
+		<query>INSERT INTO template_positions VALUES (13, 'cpanel', NULL)</query>
+		<query>INSERT INTO template_positions VALUES (14, 'user1', NULL)</query>
+		<query>INSERT INTO template_positions VALUES (15, 'user2', NULL)</query>
+		<query>INSERT INTO template_positions VALUES (16, 'user3', NULL)</query>
+		<query>INSERT INTO template_positions VALUES (17, 'user4', NULL)</query>
+		<query>INSERT INTO template_positions VALUES (18, 'user5', NULL)</query>
+		<query>INSERT INTO template_positions VALUES (19, 'user6', NULL)</query>
+		<query>INSERT INTO template_positions VALUES (20, 'user7', NULL)</query>
+		<query>INSERT INTO template_positions VALUES (21, 'user8', NULL)</query>
+		<query>INSERT INTO template_positions VALUES (22, 'user9', NULL)</query>
+		<query>INSERT INTO template_positions VALUES (23, 'advert1', NULL)</query>
+		<query>INSERT INTO template_positions VALUES (24, 'advert2', NULL)</query>
+		<query>INSERT INTO template_positions VALUES (25, 'advert3', NULL)</query>
+		<query>INSERT INTO template_positions VALUES (26, 'icon', NULL)</query>
+		<query>INSERT INTO template_positions VALUES (27, 'debug', NULL)</query>
+		<query>INSERT INTO template_positions VALUES (28, 'language', NULL)</query>
+		<query>INSERT INTO template_positions VALUES (29, 'hidden', NULL)</query>
+	</sql>
+
+	<table name="templates_menu">
+		<field name="template" type="C" size="50">
+			<KEY />
+		</field>
+		<field name="menuid" type="I">
+			<KEY />
+			<DEFAULT value="0" />
+		</field>
+		<field name="client_id" type="I4">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="params" type="X"></field>
+	</table>
+	<sql>
+		<query>INSERT INTO templates_menu VALUES ('magnet', 0, 1, NULL)</query>
+		<query>INSERT INTO templates_menu VALUES ('econnect', 0, 2, NULL)</query>
+		<query>INSERT INTO templates_menu VALUES ('okto', 0, 0, NULL)</query>
+	</sql>
+
+	<table name="users">
+		<field name="id" type="I">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="name" type="C" size="120"></field>
+		<field name="username" type="C" size="25"></field>
+		<field name="email" type="C" size="100"></field>
+		<field name="password" type="C" size="100"></field>
+		<field name="usertype" type="C" size="50"></field>
+		<field name="block" type="I1">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="sendemail" type="I1">
+			<DEFAULT value="0" />
+		</field>
+		<field name="gid" type="I4">
+			<NOTNULL />
+			<DEFAULT value="18" />
+		</field>
+		<field name="registerdate" type="T">
+			<NOTNULL />
+			<DEFAULT value="1979-12-19 00:00:00" />
+		</field>
+		<field name="lastvisitdate" type="T">
+			<NOTNULL />
+			<DEFAULT value="1979-12-19 00:00:00" />
+		</field>
+		<field name="activation" type="C" size="100"></field>
+		<field name="params" type="X"></field>
+		<field name="extrafields" type="X"></field>
+		<field name="preflang" type="C" size="80"></field>
+		<field name="avatar" type="C" size="250"></field>
+		<field name="website" type="C" size="120"></field>
+		<field name="aim" type="C" size="80"></field>
+		<field name="yim" type="C" size="80"></field>
+		<field name="msn" type="C" size="80"></field>
+		<field name="icq" type="C" size="60"></field>
+		<field name="phone" type="C" size="30"></field>
+		<field name="mobile" type="C" size="30"></field>
+		<field name="birthdate" type="C" size="20"></field>
+		<field name="gender" type="C" size="10"></field>
+		<field name="location" type="C" size="120"></field>
+		<field name="occupation" type="C" size="120"></field>
+		<field name="signature" type="X"></field>
+		<field name="expires" type="T">
+			<NOTNULL />
+			<DEFAULT value="2060-01-01 00:00:00" />
+		</field>
+		<index name="usertype">
+			<col>usertype</col>
+		</index>
+		<index name="idx_name">
+			<col>name</col>
+		</index>
+	</table>
+
+	<table name="users_extra">
+		<field name="extraid" type="I">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="name" type="C" size="80"></field>
+		<field name="etype" type="C" size="30">
+			<NOTNULL />
+			<DEFAULT value="text" />
+		</field>
+		<field name="maxlength" type="I4">
+			<NOTNULL />
+			<DEFAULT value="50" />
+		</field>
+		<field name="required" type="I1">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="ordering" type="I">
+			<NOTNULL />
+			<DEFAULT value="99" />
+		</field>
+		<field name="eoptions" type="X"></field>
+		<field name="defvalue" type="X"></field>
+		<field name="published" type="I1">
+			<NOTNULL />
+			<DEFAULT value="1" />
+		</field>
+		<field name="registration" type="I1">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="profile" type="I1">
+			<NOTNULL />
+			<DEFAULT value="1" />
+		</field>
+		<field name="readonly" type="I1">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="halign" type="I1">
+			<NOTNULL />
+			<DEFAULT value="1" />
+		</field>
+	</table>
+
+	<table name="usertypes">
+		<field name="id" type="I4">
+			<KEY />
+			<DEFAULT value="0" />
+		</field>
+		<field name="name" type="C" size="50"></field>
+		<field name="mask" type="C" size="11"></field>
+	</table>
+	<sql>
+		<query>INSERT INTO usertypes VALUES (0, 'superadministrator', NULL)</query>
+		<query>INSERT INTO usertypes VALUES (1, 'administrator', NULL)</query>
+		<query>INSERT INTO usertypes VALUES (2, 'editor', NULL)</query>
+		<query>INSERT INTO usertypes VALUES (3, 'user', NULL)</query>
+		<query>INSERT INTO usertypes VALUES (4, 'author', NULL)</query>
+		<query>INSERT INTO usertypes VALUES (5, 'publisher', NULL)</query>
+		<query>INSERT INTO usertypes VALUES (6, 'manager', NULL)</query>
+	</sql>
+	<table name="weblinks">
+		<field name="id" type="I">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="catid" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="sid" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="title" type="C" size="255"></field>
+		<field name="url" type="C" size="250"></field>
+		<field name="description" type="C" size="255"></field>
+		<field name="date" type="T">
+			<NOTNULL />
+			<DEFAULT value="1979-12-19 00:00:00" />
+		</field>
+		<field name="hits" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="published" type="I1">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="checked_out" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="checked_out_time" type="T">
+			<NOTNULL />
+			<DEFAULT value="1979-12-19 00:00:00" />
+		</field>
+		<field name="ordering" type="I">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="archived" type="I1">
+			<NOTNULL />
+			<DEFAULT value="0" />
+		</field>
+		<field name="approved" type="I1">
+			<NOTNULL />
+			<DEFAULT value="1" />
+		</field>
+		<field name="params" type="X"></field>
+		<field name="screenshot" type="C" size="200"></field>
+		<field name="language" type="C" size="255"></field>
+		<index name="catid">
+			<col>catid</col>
+			<col>published</col>
+			<col>archived</col>
+		</index>
+	</table>
+</schema>
